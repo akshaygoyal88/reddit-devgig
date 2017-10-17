@@ -1,9 +1,8 @@
-# Front-end
-Front end Test
+# Front-end Test
 
 We ask that you complete the following challenge to evaluate your development skills. Please use Javascript and a framework of your choice to accomplish the following task.
 
-# Minesweeper
+## Minesweeper
 Develop the classic game of Minesweeper: https://en.wikipedia.org/wiki/Minesweeper_(video_game) - Please see the description section for how the game is set up.
 
 ## Your Tasks
