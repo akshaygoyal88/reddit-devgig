@@ -8,7 +8,7 @@ We ask that you complete the following challenge to evaluate your development sk
 2.  When you have code ready to be review submit a pull request
 
 ## Minesweeper
-Develop the classic game of Minesweeper: https://en.wikipedia.org/wiki/Minesweeper_(video_game) - Please see the description section for how the game is set up.
+Develop the classic game of [Minesweeper](https://en.wikipedia.org/wiki/Minesweeper_(video_game)) - Please see the description section for how the game is set up.
 
 ## Your Tasks
 The following is a list of items (prioritized from most important to least important) we wish to see:
