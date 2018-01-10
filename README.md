@@ -22,7 +22,7 @@ The app should be able to show data from each entry such as:
     - Number of comments
     - Unread status
 
-In addition, for those having a picture (besides the thumbnail), please allow the user to tap on the thumbnail to be sent to the full sized picture. You don’t have to implement the IMGUR API, so just opening the URL would be OK.
+In addition, for those having a picture (besides the thumbnail), please allow the user to tap on the thumbnail to be sent to the full sized picture.
 
 ## What to Include
 
