@@ -1,41 +1,43 @@
-# Front-end Test
+# Front-end Test`
 
-We ask that you complete the following challenge to evaluate your development skills. Please use Javascript and a framework of your choice to accomplish the following task.
+## Obective
+We would like to have you complete the following code test so we can evaluate your Front-end skills.  Please place your code in a public Github repository and commit each step of your process so we can review it.
 
-## Forking Procedures
+Your assignment is to create a simple Reddit client that shows the top 50 entries from [Reddit](www.reddit.com/top)
 
-1.  Fork the repo to your own github account
-2.  When you have code ready to be review submit a pull request
+## Show your work
 
-## Minesweeper
-Develop the classic game of [Minesweeper](https://en.wikipedia.org/wiki/Minesweeper_(video_game)) - Please see the description section for how the game is set up.
+1.  Create a Public repository
+2.  Commit each step of your process so we can follow your thought process.
 
-## Your Tasks
-The following is a list of items (prioritized from most important to least important) we wish to see:
-* When a cell with no adjacent mines is revealed, all adjacent squares will be revealed (and repeat)
-* Ability to 'flag' a cell with a question mark or red flag
-* Alert when game is over
-* Persistence. Not to lose the game if browser is closed
-* Time tracking
-* Ability to start a new game and preserve/resume the old ones
-* Ability to select the game parameters: number of rows, columns, and mines
-* Ability to support multiple users/accounts
-* Design and implement an API for the game (think of a mobile app for your API)
-* Nice user experience (eg avoid page reload while playing)
+## What to show
+To do this please follow these guidelines and use the front-end technology we talked about during your interview (Specific Javascript Framework):
 
-## Deliverables
-Deliverables we expect:
-* URL where the game can be accessed and played (use any platform of your preference: heroku.com, aws.amazon.com, etc)
-* Code in a public Github repo
-* README file with the decisions taken and important notes
-* Time you spent on the challenge
+The app should be able to show data from each entry such as:
 
-## How much time
-You do not need to fully complete the challenge. We suggest not to spend more than 5 hours total, which can be done over the course of 2 days.  Please make commits as often as possible and refrain from making a single commit at the end.  We will evaluate the code and time spent.
+    - Title (at its full length, so take this into account when sizing your cells)
+    - Author
+    - entry date, following a format like “x hours ago” 
+    - A thumbnail for those who have a picture.
+    - Number of comments
+    - Unread status
 
-What we want to see is how well you handle yourself given the time you spend on the problem, how you think, and how you prioritize when time is insufficient to solve everything.
+In addition, for those having a picture (besides the thumbnail), please allow the user to tap on the thumbnail to be sent to the full sized picture. You don’t have to implement the IMGUR API, so just opening the URL would be OK.
 
-## Good Luck!
-As soon as you have submitted your solution, we will review the code and send our feedback.
+## What to Include
 
-Thank you,
+    - Pagination support
+    - Saving pictures in the picture gallery
+    - App state-preservation/restoration
+    - Indicator of unread/read post (updated status, after post it’s selected)
+    - Dismiss Post Button (remove the cell from list. Animations required)
+    - Dismiss All Button (remove all posts. Animations required)
+    - Support split layout (left side: all posts / right side: detail post)
+    - Responsive design
+
+## Resources
+
+    - [Reddit API](http://www.reddit.com/dev/api)
+    - [Apigee](https://apigee.com/console/reddit)
+    - Example JSON file (top.json) is listed.
+    - Example Video of functionality is attached
