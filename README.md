@@ -1,4 +1,4 @@
-# Front-end Test`
+# Front-end Test
 
 ## Obective
 We would like to have you complete the following code test so we can evaluate your Front-end skills.  Please place your code in a public Github repository and commit each step of your process so we can review it.
