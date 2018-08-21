@@ -38,7 +38,6 @@ In addition, for those having a picture (besides the thumbnail), please allow th
 ## Resources
 
     - Reddit API - http://www.reddit.com/dev/api
-    - Apigee - https://apigee.com/console/reddit
     - Example JSON file (top.json) is listed.
     - Example Video of functionality is attached
     
