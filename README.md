@@ -41,6 +41,11 @@ In addition, for those having a picture (besides the thumbnail), please allow th
     - Example JSON file (top.json) is listed.
     - Example Video of functionality is attached
     
+## Deliverables we expect:
+* URL where the game can be accessed and played (use any platform of your preference: heroku.com, aws.amazon.com, etc)
+* Code in a public Github repo
+* README file with the decisions taken and important notes
+    
 ## Time Spent
 You do not need to fully complete the challenge. We suggest not to spend more than 5 hours total, which can be done over the course of 2 days.  Please make commits as often as possible so we can see the time you spent and please do not make one commit.  We will evaluate the code and time spent.
  
