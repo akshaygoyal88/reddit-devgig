@@ -11,7 +11,7 @@ Your assignment is to create a simple Reddit client that shows the top 50 entrie
 2.  Commit each step of your process so we can follow your thought process.
 
 ## What to show
-To do this please follow these guidelines and use the front-end technology we talked about during your interview (Specific Javascript Framework):
+To do this please follow these guidelines and use the front-end technology we talked about during your interview (Specific Javascript Framework).  If you are using ReactJS, you must incorporate Redux.
 
 The app should be able to show data from each entry such as:
 
