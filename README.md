@@ -47,8 +47,8 @@ In addition, for those having a picture (besides the thumbnail), please allow th
 * README file with the decisions taken and important notes
     
 ## Time Spent
-We suggest not to spend more than 5 hours total, which can be done over the course of 2 days.  Please make commits as often as possible so we can see the time you spent and please do not make one commit.  We will evaluate the code and time spent.
+You need to fully complete the challenge. We suggest not to spend more than 5 days total.  Please make commits as often as possible so we can see the time you spent and please do not make one commit.  We will evaluate the code and time spent.
  
-What we want to see is how well you handle yourself given the time you spend on the problem, how you think, and how you prioritize when time is insufficient to solve everything.
+What we want to see is how well you handle yourself given the time you spend on the problem, how you think, and how you prioritize when time is sufficient to solve everything.
 
 Please email your solution as soon as you have completed the challenge or the time is up.
