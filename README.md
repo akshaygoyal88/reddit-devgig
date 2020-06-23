@@ -42,7 +42,7 @@ In addition, for those having a picture (besides the thumbnail), please allow th
     - Example Video of functionality is attached
     
 ## Deliverables we expect:
-* URL where the game can be accessed and played (use any platform of your preference: heroku.com, aws.amazon.com, etc)
+* URL where the app can be viewed and seen working (use any platform of your preference: heroku.com, aws.amazon.com, etc)
 * Code in a public Github repo
 * README file with the decisions taken and important notes
     
