@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
+import clsx from 'clsx';
+import { formatDate } from '../../utils/formatDate';
+
 import {
   Avatar,
   Card,
   CardHeader,
   CardContent,
   CardActions,
-  CircularProgress,
   Link,
-  List,
-  ListItem,
   Typography,
-  Tooltip
 } from '@material-ui/core/';
+
 import { makeStyles } from '@material-ui/core/styles';
 import { API_BASE_URL } from '../../actions/actionTypes';
-import { fetchPosts, selectPost, dismiss } from '../../actions';
+import { DRAWER_WIDTH, APP_BAR_HEIGHT } from '../../utils/constants';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,17 +22,6 @@ const useStyles = makeStyles((theme) => ({
   },
   selectedItem: {
     flex: 1,
-  },
-  list: {
-    maxWidth: 400,
-    background: 'black',
-    color: 'white',
-  },
-  listItem: {
-    justifyContent: 'space-between',
-    cursor: 'pointer',
-    display: 'block',
-    borderBottom: '1px solid white'
   },
   small: {
     width: theme.spacing(3),
@@ -49,44 +38,78 @@ const useStyles = makeStyles((theme) => ({
       opacity: 0.7,
     },
   },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing(3),
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    marginLeft: DRAWER_WIDTH,
+  },
+  contentShift: {
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+    marginLeft: 0,
+  },
+  selectedItem: {
+    flex: 1,
+    marginTop: APP_BAR_HEIGHT,
+  },
 }));
  
 
 export const BlogDetail=(props)=>{
   const classes = useStyles();
+  const {post, open} = props;
 
-  const selectedPost = props.selectedPost;
+  console.log(post,'postpostpostpost')
+  if(!post.id){
     return(
+    <Typography variant="h5" component="h2">
+      No content
+    </Typography>
+    )
+  }
+    return(
+      <div
+      className={clsx(classes.selectedItem, classes.content, {
+        [classes.contentShift]: !open,
+      })}
+      >
     <Card>
         <CardHeader
           avatar={
             <Avatar aria-label="recipe" className={classes.avatar}>
-              {selectedPost.author.charAt(0).toUpperCase()}
+              {post.author.charAt(0).toUpperCase()}
             </Avatar>
           }
           title={<div>
             <Typography variant="body2" color="textSecondary" component="p">
-              Posted by {selectedPost.author}
+              Posted by {post.author}
             </Typography>
             </div>
           }
         />
-        <a href={selectedPost.thumbnail} target="_blank" rel="noopener noreferrer">
-          <img src={selectedPost.thumbnail} alt={selectedPost.thumbnail} />
+        <a href={post.thumbnail} target="_blank" rel="noopener noreferrer">
+          <img src={post.thumbnail} alt={post.thumbnail} />
         </a>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            {selectedPost.title}
+            {post.title}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            1 hours ago - {selectPost.num_comments} comments
+            {formatDate(post.created_utc)} - {post.num_comments} comments
           </Typography>
         </CardContent>
         <CardActions className={classes.cardActions}>
-          <Link color="primary" target="_blank" href={`${API_BASE_URL}${selectedPost.permalink}`}>
+          <Link color="primary" target="_blank" href={`${API_BASE_URL}${post.permalink}`}>
             SEE ORIGINAL BLOG
           </Link>
         </CardActions>
       </Card>
+      </div>
       )
 }

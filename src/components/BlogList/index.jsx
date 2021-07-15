@@ -3,13 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   Avatar,
   Badge,
-  Card,
-  CardHeader,
-  CardContent,
-  CardActions,
   CircularProgress,
-  Drawer, IconButton, 
-  Link,
+  Drawer, IconButton,
   List,
   ListItem,
   Typography,
@@ -20,8 +15,7 @@ import HighlightOffOutlinedIcon from '@material-ui/icons/HighlightOffOutlined';
 
 import { ChevronLeft } from '@material-ui/icons';
 import { formatDate } from '../../utils/formatDate';
-import { DRAWER_WIDTH, POSTS_LIMIT, MOBILE_BREAKPOINT } from '../../utils/constants';
-import useLocalStorage from '../../hooks/useLocalStorage';
+import { DRAWER_WIDTH, POSTS_LIMIT } from '../../utils/constants';
 
 import { fetchPosts, selectPost, dismiss, dismissAll } from '../../actions';
 
@@ -96,19 +90,31 @@ const useStyles = makeStyles((theme) => ({
       opacity: 0.7,
     },
   },
+  num_comments: {
+    padding: '15px 0px'
+  },
+  dismiss: {
+    verticalAlign: 'text-bottom',
+    lineHeight: 2
+  },
+  dismissPost: {
+    display: 'flex',
+    justifyContent: 'space-between'
+  },
+  inline: {
+    display: 'inline-flex'
+  }
 }));
 
-export const BlogList=(props)=>{
-  const isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
-  const [open, setOpen] = useState(!isMobile);
-
+export const BlogList = (props) => {
+  const setOpen = props.setOpen;
+  const open = props.open;
   const classes = useStyles();
   const dispatch = useDispatch();
   const isLoading = useSelector(state => state.posts.loading);
   const posts = useSelector(state => state.posts.data);
-  const selectedPost = useSelector(state => state.posts.selected);
   const after = useSelector(state => state.posts.after);
-  const [readPosts, setRead] = useLocalStorage('readPosts', {});
+  const [readBlogList, setReadBlogList] = useState([])
 
   useEffect(() => {
     if (!posts.length) {
@@ -116,8 +122,17 @@ export const BlogList=(props)=>{
     }
   }, [dispatch, posts.length]);
 
-    return(
-      <Drawer
+  const clickPost = (post) => {
+    let blogs = readBlogList || [];
+    if (!blogs.includes(post.data.id)) {
+      blogs.push(post.data.id);
+    }
+    setReadBlogList(blogs);
+    dispatch(selectPost(post.data));
+  }
+
+  return (
+    <Drawer
       className={classes.drawer}
       variant="persistent"
       anchor="left"
@@ -133,67 +148,64 @@ export const BlogList=(props)=>{
           <ChevronLeft />
         </IconButton>
       </div>
-      <List 
-      className={classes.list}
-      onScroll={e => {
-        if (
-          !isLoading &&
-          posts.length < POSTS_LIMIT &&
-          e.target.scrollTop + e.target.clientHeight === e.target.scrollHeight
-        ) {
-          dispatch(fetchPosts({ after }));
-        }
-      }}
+      <List
+        className={classes.list}
+        onScroll={e => {
+          if (
+            !isLoading &&
+            posts.length < POSTS_LIMIT &&
+            e.target.scrollTop + e.target.clientHeight === e.target.scrollHeight
+          ) {
+            dispatch(fetchPosts({ after }));
+          }
+        }}
       >
         {posts.map(post => (
           <ListItem
             key={post.data.id}
             className={classes.listItem}
-            onClick={() => {
-              dispatch(selectPost(post.data));
-            }}>
-              {/* <Typography>
-                <Avatar aria-label="recipe" variant="square" src={post.data.thumbnail}>
-                  T
-                </Avatar>
-              </Typography> */}
-              <div>
-                <Typography variant="h6" component="span">
-                  <Badge color="secondary" variant="dot">
-                    {post.data.author}
-                  </Badge>
-                </Typography>
-                <Typography variant="caption" component="span">
-                    &nbsp;{formatDate(post.data.created_utc)}
-                </Typography>
-              </div>
-              <div style={{display: 'inline-flex'}}>
-                  <Avatar aria-label="recipe" variant="square" className={classes.large} src={post.data.thumbnail}>
-                    A
+            onClick={(e) => clickPost(post)}>
+            <div>
+              <Typography variant="h6" component="span">
+                <Badge
+                  anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'left',
+                  }}
+                  color="secondary" variant="dot" invisible={readBlogList.includes(post.data.id)}>
+                  {post.data.author}
+                </Badge>
+              </Typography>
+              <Typography variant="caption" component="span">
+                &nbsp;{formatDate(post.data.created_utc)}
+              </Typography>
+            </div>
+            <div className={classes.inline}>
+              <Avatar aria-label="recipe" variant="square" className={classes.large} src={post.data.thumbnail}>
+                A
                   </Avatar>
-                <Typography inline component="p">
-                 {post.data.title}
-                </Typography>
-              </div>
-              <div style={{display: 'flex', justifyContent:'space-between'}}>
-                <Tooltip title="Dismiss post" aria-label="dismiss-post" placement="top">
-                  <div className={classes.delete} onClick={() => dispatch(dismiss(post.data.id))}>
-                    <HighlightOffOutlinedIcon /> <span>Dismiss post</span>
-                  </div>
-                </Tooltip>
-                <div>
-                  {post.data.num_comments} comments
+              <Typography inline="true" component="p">
+                {post.data.title}
+              </Typography>
+            </div>
+            <div className={classes.dismissPost}>
+              <Tooltip title="Dismiss post" aria-label="dismiss-post" placement="top">
+                <div className={classes.delete} onClick={() => dispatch(dismiss(post.data.id))}>
+                  <HighlightOffOutlinedIcon /> <span className={classes.dismiss}>Dismiss post</span>
                 </div>
-              </div>
-              
+              </Tooltip>
+              <div className={classes.num_comments}>
+                {post.data.num_comments} comments
+                </div>
+            </div>
           </ListItem>
         ))}
         {isLoading && <CircularProgress className={classes.loading} />}
 
       </List>
-        <div className={classes.dismissAllButton} onClick={() => dispatch(dismissAll())}>
-          Dismiss All
+      <div className={classes.dismissAllButton} onClick={() => dispatch(dismissAll())}>
+        Dismiss All
         </div>
-      </Drawer>
-    )
+    </Drawer>
+  )
 }
