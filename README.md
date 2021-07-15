@@ -7,8 +7,9 @@ Your assignment is to create a simple Reddit client that shows the top 50 entrie
 
 ## Show your work
 
-1.  Create a Public repository
-2.  Commit each step of your process so we can follow your thought process.
+- [Commits](https://github.com/akshaygoyal88/reddit-devgig/commits)
+- [Live demo](http://reddit-deviget-akshay.herokuapp.com/)
+
 
 ## What to show
 To do this please follow these guidelines and use the front-end technology we talked about during your interview (Specific Javascript Framework).  If you are using ReactJS, you must incorporate Redux.
