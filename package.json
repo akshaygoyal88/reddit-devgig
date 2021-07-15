@@ -11,11 +11,15 @@
     "axios": "^0.19.2",
     "clsx": "^1.1.1",
     "date-fns": "^2.22.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "expect": "^27.0.6",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-redux": "^7.1.3",
     "react-scripts": "^3.4.1",
     "redux": "^4.0.5",
+    "redux-mock-store": "^1.5.4",
     "redux-promise-middleware": "^6.1.2",
     "redux-thunk": "^2.3.0"
   },
@@ -25,23 +29,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "jest": {
-    "coverageThreshold": {
-      "./src/components/": {
-        "branches": 40,
-        "statements": 40
-      },
-      "./src/reducers/**/*.js": {
-        "statements": 80
-      },
-      "./src/actions/courseActions.js": {
-        "branches": 80,
-        "functions": 80,
-        "lines": 80,
-        "statements": 80
-      }
-    }
   },
   "eslintConfig": {
     "extends": "react-app"

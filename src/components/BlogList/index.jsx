@@ -143,6 +143,7 @@ export const BlogList = (props) => {
       classes={{
         paper: classes.drawerPaper,
       }}>
+        
       <div className={classes.drawerHeader}>
         <Typography variant="h6" noWrap className={classes.sectionTitle}>
           Reddit Posts

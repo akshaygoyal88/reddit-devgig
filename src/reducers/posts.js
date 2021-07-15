@@ -1,7 +1,7 @@
 const defaultPosts = { loading: false, data: [], selected: {} };
 
 export default (state = defaultPosts, action) => {
-  console.log(action, 'action');
+  // console.log(action, 'action');
   switch (action.type) {
     case 'FETCH_BLOGS_PENDING': {
       return { ...state, loading: true };
