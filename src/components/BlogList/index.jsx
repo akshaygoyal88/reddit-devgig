@@ -103,6 +103,9 @@ const useStyles = makeStyles((theme) => ({
   },
   inline: {
     display: 'inline-flex'
+  },
+  leftSpace:{
+    paddingLeft: '10px'
   }
 }));
 
@@ -184,7 +187,7 @@ export const BlogList = (props) => {
               <Avatar aria-label="recipe" variant="square" className={classes.large} src={post.data.thumbnail}>
                 A
                   </Avatar>
-              <Typography inline="true" component="p">
+              <Typography inline="true" className={classes.leftSpace} component="p">
                 {post.data.title}
               </Typography>
             </div>

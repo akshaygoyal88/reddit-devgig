@@ -106,7 +106,7 @@ export const BlogDetail=(props)=>{
         </CardContent>
         <CardActions className={classes.cardActions}>
           <Link color="primary" target="_blank" href={`${API_BASE_URL}${post.permalink}`}>
-            SEE ORIGINAL BLOG
+            Go to Reddit Blog
           </Link>
         </CardActions>
       </Card>
