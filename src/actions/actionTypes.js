@@ -1,6 +1,6 @@
 // REDUX CONSTANTS
 export const FETCH_BLOGS = 'FETCH_BLOGS';
-export const DISMISS_BLOG = 'DISMISS_BLOG';
+export const DISMISS_POST = 'DISMISS_POST';
 export const DISMISS_ALL = 'DISMISS_ALL';
 export const SELECTED_BLOG = 'SELECTED_BLOG';
 
