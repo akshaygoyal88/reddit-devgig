@@ -13,9 +13,10 @@ export default (state = defaultPosts, action) => {
         ...state,
         loading: false,
         data: [...state.data, ...data.children],
+        after: data.after,
       };
     }
-
+    
     case 'SELECTED_BLOG': {
       const { post } = action.payload;
       return {
